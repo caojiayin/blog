@@ -40,6 +40,8 @@ h1,h2,p{padding: 0px;margin: 0px;}
 	-webkit-border-radius:5px;
 	}
 .warp_left .post_lists h1{font-size: 18px;line-height: 30px;}
+.warp_left .post_lists h1 a{text-decoration: none;color:#444;}
+.warp_left .post_lists h1 a:hover{color:#333;}
 .warp_left .post_lists h2{background: url("../images/h2.jpg"); height: 26px;line-height: 26px;position: absolute;left:0px;width: 618px;font-size: 12px;padding-left: 20px;margin-top:10px;color:#888;/*border-radius: 0px 5px 5px 0px;-moz-border-radius:0px 5px 5px 0px;-webkit-border-radius:0px 5px 5px 0px;*/}
 .warp_left .post_lists h2 span{padding: 2px;margin-right: 10px;}
 .warp_left .post_lists .content{padding-top: 45px;line-height: 20px;}
