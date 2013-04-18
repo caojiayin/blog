@@ -1,17 +1,18 @@
 html,body{width: 100%;height:100%;font-size: 12px;margin: 0px;padding: 0px;font-family: '微软雅黑'}
 body{background: url("../images/body.jpg") repeat;color:#444;}
-h1,h2{padding: 0px;margin: 0px;}
+h1,h2,p{padding: 0px;margin: 0px;}
 .blank10{height:10px;clear: both;font-size: 0px;overflow: hidden;}
 .fr{float:right;}
 .fl{float:left;}
 
-.warp900{width:900px;margin: 0px auto}
+.warp900{width:930px;margin: 0px auto}
 
 .header{
 	height:38px;
 	line-height: 38px;
 	font-size: 14px;
 	font-weight: 700;
+	padding-left:10px;
 	/*background: url("../images/bg_nav.png");
 	
 	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#333', endColorstr='#444', GradientType='0'); /* IE*
@@ -41,5 +42,10 @@ h1,h2{padding: 0px;margin: 0px;}
 .warp_left .post_lists .content{padding-top: 45px;line-height: 20px;}
 .warp_left .post_lists .content img{border:1px solid #ddd;}
 
+.warp_right{width: 240px;margin-left: 40px;float: right;}
+
+.warp_right .person{width: 240px;}
+.warp_right .person .avatar{width: 80px;height: 80px;border: 1px solid #ddd;background: #fff;float: left;background: url("../images/logo.png") no-repeat center;}
+.warp_right .person .info{width: 150px;height: 80px;float: right;font-size: 14px;line-height: 25px;}
 
 
