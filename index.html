@@ -9,11 +9,11 @@
 		<script type="text/javascript" src="static/javascript/jquery.js"></script>
 </head>
 <body>
-<div class="warp900">
-	<div class="header">
+<div class="warp900 header">
 		甲子的日志空间(施工中...)
 	</div>
-	<div class="warp_main"></div>
+</div>
+<div class="warp900 warp_main" id="warp_main">
 		<div class="warp_left">
 			<div class="post_lists">
 				<h1>CSS3 圆角生成方案</h1>
@@ -46,6 +46,7 @@
 				</div>
 				<div class="blank"></div>
 			</div>
+			<div class="blank20"></div>
 			<div class="category">
 				<h1>日志分类</h1>
 				<a href="">css</a>
@@ -55,6 +56,19 @@
 			</div>
 		</div>
 	</div>
+	<div class="blank"></div>
 </div>
+<div class="footer warp900">
+	© 曹甲寅 2013 Powered by GitHub jekyll 
+</div>
+<script type="text/javascript">
+$(function(){
+	var height = $(document).height();
+	var diff = $("#warp_main").outerHeight(true) - $("#warp_main").height();
+	$("#warp_main").css({
+		"min-height" : height - $(".header").outerHeight(true) - $(".footer").outerHeight(true) - diff +'px'
+	});
+})
+</script>
 </body>
 </html>
