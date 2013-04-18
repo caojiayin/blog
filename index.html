@@ -1,77 +1,16 @@
-<!DOCTYPE html>
-<html>
-<head>
-        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-        <title></title>
-        <meta name="keywords" content=""/>
-        <meta name="description" content="" />
-        <link href="static/style/default.css" rel="stylesheet" type="text/css" />
-		<script type="text/javascript" src="static/javascript/jquery.js"></script>
-</head>
-<body>
-<div class="warp900 header">
-		甲子的日志空间(施工中...)
+---
+layout: default
+title: 
+---
+{% for post in paginator.posts %}
+<div class="post_lists">
+	<h1>{{post.title}}</h1>
+	<h2>
+		<span>作者：曹甲寅</span>
+		<span>日期：[{{ post.date | date:"%Y-%m-%d"  }}]</span>
+	</h2>
+	<div class="content">
+		传统的圆角生成方案，必须使用多张图片作为背景图案。CSS3的出现，使得我们再也不必浪费时间去制作这些图片了，而且还有其他多个优点
 	</div>
 </div>
-<div class="warp900 warp_main" id="warp_main">
-		<div class="warp_left">
-			<div class="post_lists">
-				<h1>CSS3 圆角生成方案</h1>
-				<h2>
-					<span>作者：曹甲寅</span>
-					<span>日期：2013-04-18</span>
-				</h2>
-				<div class="content">
-					传统的圆角生成方案，必须使用多张图片作为背景图案。CSS3的出现，使得我们再也不必浪费时间去制作这些图片了，而且还有其他多个优点
-				</div>
-			</div>
-			<div class="post_lists">
-				<h1>CSS3 圆角生成方案</h1>
-				<h2>
-					<span>作者：曹甲寅</span>
-					<span>日期：2013-04-18</span>
-				</h2>
-				<div class="content">
-					传统的圆角生成方案，必须使用多张图片作为背景图案。CSS3的出现，使得我们再也不必浪费时间去制作这些图片了，而且还有其他多个优点
-				</div>
-			</div>
-		</div>
-		<div class="warp_right">
-			<div class="person">
-				<div class="avatar"></div>
-				<div class="info">
-					<p>曹甲寅(重庆)(PHP,前端)</p>
-					<p>Email:caojiayin1984@gmail.com</p>
-					<p>关注所有感兴趣的东东</p>
-				</div>
-				<div class="blank"></div>
-			</div>
-			<div class="ulist">
-				<h1>日志分类(Category)</h1>
-				<a href="">css</a>
-				<a href="">php</a>
-				<a href="">资源</a>
-				<a href="">乱七八糟</a>
-			</div>
-			<div class="ulist">
-				<h1>友链(Link)</h1>
-				<a href="">傅唯一</a>
-			</div>
-		</div>
-	</div>
-	<div class="blank"></div>
-</div>
-<div class="footer warp900">
-	© 曹甲寅 2013 Powered by GitHub jekyll 
-</div>
-<script type="text/javascript">
-$(function(){
-	var height = $(document).height();
-	var diff = $("#warp_main").outerHeight(true) - $("#warp_main").height();
-	$("#warp_main").css({
-		"min-height" : height - $(".header").outerHeight(true) - $(".footer").outerHeight(true) - diff +'px'
-	});
-})
-</script>
-</body>
-</html>
+{% endfor %}

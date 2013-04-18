@@ -1,0 +1,14 @@
+<div class="footer warp900">
+	© 曹甲寅 2013 Powered by GitHub jekyll 
+</div>
+<script type="text/javascript">
+$(function(){
+	var height = $(document).height();
+	var diff = $("#warp_main").outerHeight(true) - $("#warp_main").height();
+	$("#warp_main").css({
+		"min-height" : height - $(".header").outerHeight(true) - $(".footer").outerHeight(true) - diff +'px'
+	});
+})
+</script>
+</body>
+</html>
