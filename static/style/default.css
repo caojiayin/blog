@@ -109,6 +109,28 @@ h1,h2,p{padding: 0px;margin: 0px;}
 .category_float .ulist{background: none;margin: 0px;padding: 0px;}
 .category_float .ulist h1{font-size: 14px;background: url("../images/line.png") repeat-x bottom center;}
 .category_float .ulist a{font-size: 12px;}
+
+.categoryList{
+	width: 598px;
+	background: url("../images/postbg.jpg");
+	padding:10px 20px;
+	border:1px solid #d6d6d6;
+	position: relative;
+	margin-bottom: 20px;
+	box-shadow:3px 3px 5px #d2d2d2;
+	/*-moz-box-shadow:3px 3px 5px #d2d2d2;*/
+	border-radius: 5px;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	}
+
+.categoryList h1{font-size: 18px;line-height: 30px;background: url("../images/line.png") repeat-x bottom center;padding-bottom: 12px;}
+.categoryList ul{}
+.categoryList ul li{height:30px;line-height: 30px;text-indent: 2em;border-bottom: 1px solid #d5d5d5}
+.categoryList a{text-decoration: none;color:#555;font-size: 14px;}
+.categoryList span{float:right;font-size: 12px;color: #666;padding-right: 10px;}
+
+
 .footer{font-size: 14px;color:#888;text-align: center;padding:10px 0px;background: url("../images/line.png") repeat-x top center;}
 
 
