@@ -82,6 +82,7 @@ ol, ul, li { list-style-type:none; }
 .post_content .content{padding-top: 45px;line-height: 25px;font-size: 14px}
 .post_content .content img{border:1px solid #ddd;}
 .post_content .content a{color:#0066ff;margin: 0px 2px;}
+.post_content .content h3{font-weight: 700px;display: block;font-size: 16px;padding:5px 0px;}
 
 .ps{color:#666;font-size: 12px;}
 .content_quote{display: block;margin:0px;overflow:auto;background:#f5f5f5;padding:10px;border-bottom: 1px solid #E4E5E7;border-radius: 5px;border-right: 1px solid #E4E5E7;box-shadow: 1px 1px 2px rgba(102, 102, 102, 0.1);}
