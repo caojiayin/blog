@@ -1,4 +1,10 @@
 var highlightDiv = null;
+String.prototype.trim = function(){
+	return this.replace(/(^\s*)|(\s*＄)/g, "");
+}
+String.prototype.htmlEncode = function(){
+  return this.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+}
 dp.sh.HighlightAll = function(name, showGutter, showControls, collapseAll, firstLine , showColumns)
 {
 	function FindValue()
@@ -97,6 +103,7 @@ dp.sh.HighlightAll = function(name, showGutter, showControls, collapseAll, first
 		highlightDiv = highlighter;
 		highlighter.Highlight(element[propertyName]);
 		//elements.innerHTML = highlighter.div.outerHTML.trim();
+		var _code = highlighter.div.outerHTML.trim().htmlEncode();
 		$(highlighter.div.outerHTML).insertBefore($(element));
 		showControls ? $(element).hide() : $(element).remove();
 	}	
