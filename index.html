@@ -10,6 +10,9 @@ title:
 		<span>日期：[{{ post.date | date:"%Y-%m-%d"  }}]</span>
 	</h2>
 	<div class="content">
+		{% if post.img %}
+		<img src="{{ site:url  }}/static/attachment/20130419/disqus.jpg" />
+		{% endif %}
 		{{ post.description }}
 	</div>
 </div>
