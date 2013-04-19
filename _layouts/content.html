@@ -6,7 +6,7 @@
 		<h2>
 			<span>作者：{{ page.author }}</span>
 			<span>分类：{{ page.category }}</span>
-			<span>日期：{{ page.date }}</span>
+			<span>日期：{{ page.date | date:"%Y-%m-%d"  }}</span>
 		</h2>
 		<div class="content">		
 		{{ content }}
