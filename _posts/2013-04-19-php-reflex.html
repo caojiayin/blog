@@ -1,0 +1,75 @@
+---
+layout: content
+title: 利用PHP反射原理，查找类下的方法
+category : php
+description : PHP 5中自带了一个完整的反射API，增加了反向工程类，接口，功能和方法，以及扩展能力。此外，反射API还提供方式检索文档注释功能，类和方法。
+author : 曹甲寅
+keywords : PHP反射,查找类下的方法,php方法,php类,反射
+---
+<p>PHP 5中自带了一个完整的反射API，增加了反向工程类，接口，功能和方法，以及扩展能力。此外，反射API还提供方式检索文档注释功能，类和方法。</p>
+<p>1、ReflectionClass：反射一个类</p>
+<p>2、ReflectionMethod：反射一个方法</p>
+<p>3、getMethods()：获取某反射类的所有方法</p>
+<p>4、getParameters()：获取某反射方法的所有参数</p>
+<p>5、getName()：获取一个反射类/方法的名称</p>
+<p>6、implementsInterface()：该类是否实现某接口</p>
+<p>7、newInstance()：创建某一反射类的实例</p>
+<p>8、invoke()：执行某类的某方法</p>
+
+<h3>一个简单的PHP反射类，获取类中的所属方法</h3>
+<textarea class="php" name="php-refle" stype="hhl">
+<?php
+/**
+|---------------------------------------------------------------
+| 反射
+|---------------------------------------------------------------
+| Author CAO JIAYIN
+| Mail caojiayin1984@gmail.com
+| Last Date 2012-10-11
+|---------------------------------------------------------------
+*/
+
+class Reflex{
+	private static $Methods = array(); //方法合集
+	static public function getClassMethods($class){
+		$r = new ReflectionClass($class);
+		$temp = array();
+		foreach($r->getMethods() as $key=>$methodObj){
+			if($methodObj->isPrivate()){
+				$temp['private'][] = $methodObj->name;
+			}elseif($methodObj->isProtected()){
+				$temp['protected'][] = $methodObj->name;
+			}else{
+				$temp['public'][] = $methodObj->name;
+			}
+		}
+		self::$Methods = $temp;
+		unset($temp);
+		return self::$Methods;
+	}
+
+	static function getPublicMethods($class){
+		$result = self::getClassMethods($class);
+		return $result['public'];
+	}
+
+	static function checkPublicMethodsInClass($class,$method){
+		$result = self::getClassMethods($class);
+		if($result['public']){
+			foreach($result['public'] as $k => $v){
+				if(strtolower($method) == strtolower($v)){
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+	.........
+	.........
+	.........
+	.........
+
+}
+
+?>
+</textarea>
