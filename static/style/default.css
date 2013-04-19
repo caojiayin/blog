@@ -54,10 +54,10 @@ h1,h2,p{padding: 0px;margin: 0px;}
 .warp_right .person .avatar{width: 80px;height: 80px;border: 1px solid #ddd;background: #fff;float: left;background: url("../images/logo.png") no-repeat center;}
 .warp_right .person .info{width: 150px;height: 80px;float: right;font-size: 14px;line-height: 25px;}
 
-.warp_right .ulist{margin-top:20px;clear: both;background: url("../images/line.png") repeat-x top center;padding-top: 20px;}
-.warp_right .ulist h1{font-size: 16px;font-weight: 700;padding-bottom: 10px;}
-.warp_right .ulist a{display: block;height:24px;line-height: 24px;text-indent: 2em;text-decoration: none;color:#555;font-size: 14px;border-bottom: 1px solid #d5d5d5}
-.warp_right .ulist a:hover{color:#333;background: url("../images/h2.jpg");color:#3366ff;}
+.ulist{margin-top:20px;clear: both;background: url("../images/line.png") repeat-x top center;padding-top: 20px;}
+.ulist h1{font-size: 16px;font-weight: 700;padding-bottom: 10px;}
+.ulist a{display: block;height:24px;line-height: 24px;text-indent: 2em;text-decoration: none;color:#555;font-size: 14px;border-bottom: 1px solid #d5d5d5}
+.ulist a:hover{color:#333;background: url("../images/h2.jpg");color:#3366ff;}
 
 
 .post_content{	width: 890px;
