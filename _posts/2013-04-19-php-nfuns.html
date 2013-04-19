@@ -9,7 +9,7 @@ keywords : 函数,php,php不常用的函数,sys_getloadavg,cal_days_in_month,deb
 <p>函数是PHP如此强大的源泉，但是很多PHP函数并没有得到充分的利用。这里，我们给大家列举一些</p>
 <h3>sys_getloadavg</h3>
 <p>sys_getloadavt()可以获得系 统负载情况。该函数返回一个包含三个元素的数组，每个元素分别代表系统再过去的1、5和15分钟内的平均负载。与其让服务器因负 载过高而宕掉，不如在系统负载很高时主动die掉一个脚本，sys_getloadavg()就是用来帮你实现这个功能的。 不过很遗憾，该函数在windows下无效。</p>
-<textarea name="php" name="sys_getloadavt" stype="hhl">
+<textarea class="php" name="sys_getloadavt" stype="hhl">
 <?php
 $load = sys_getloadavg();
 if ($load[0] > 80) {
@@ -20,7 +20,7 @@ if ($load[0] > 80) {
 </textarea>
 <h3>cal_days_in_month</h3>
 <p>cal_days_in_month()能够返回指定月份共有多少天。</p>
-<textarea name="php" name="cal_days_in_month" stype="hhl">
+<textarea class="php" name="cal_days_in_month" stype="hhl">
 <?php
 $num = cal_days_in_month(CAL_GREGORIAN, 8, 2003); // 31
 echo "There was $num days in August 2003";
@@ -28,7 +28,7 @@ echo "There was $num days in August 2003";
 </textarea>
 <h3>debug_print_backtrace</h3>
 <p>这是一个调试用的函数，能帮助你发现代码中的逻辑错误</p>
-<textarea name="php" name="debug_print_backtrace" stype="hhl"><?php
+<textarea class="php" name="debug_print_backtrace" stype="hhl"><?php
 // include.php file
 
 function a() {
@@ -65,7 +65,7 @@ include 'include.php';
 </textarea>
 <h3>ctype_alnum</h3>
 <p>检测是否是只包含[A-Za-z0-9]</p>
-<textarea name="php" name="ctype_alnum" stype="hhl">
+<textarea class="php" name="ctype_alnum" stype="hhl">
 <?php
 $strings = array('AbCd1zyZ9', 'foo!#$bar');
 foreach ($strings as $testcase) {
@@ -82,7 +82,7 @@ The string foo!#$bar does not consist of all letters or digits.
 </textarea>
 <h3>ctype_alpha </h3>
 <p>检测是否是只包含[A-Za-z]</p>
-<textarea name="php" name="ctype_alnum" stype="hhl">
+<textarea class="php" name="ctype_alnum" stype="hhl">
 <?php
 $strings = array('KjgWZC', 'arf12');
 foreach ($strings as $testcase) {
