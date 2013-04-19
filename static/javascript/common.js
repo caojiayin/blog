@@ -98,7 +98,7 @@ dp.sh.HighlightAll = function(name, showGutter, showControls, collapseAll, first
 		highlighter.Highlight(element[propertyName]);
 		//elements.innerHTML = highlighter.div.outerHTML.trim();
 		$(highlighter.div.outerHTML.trim()).insertBefore($(element));
-		$(element).hide();
+		showControls ? $(element).hide() : $(element).remove();
 	}	
 }
 dp.sh.Toolbar.Command = function(name, sender)
