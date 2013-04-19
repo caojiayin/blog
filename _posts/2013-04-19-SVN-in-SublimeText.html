@@ -1,0 +1,30 @@
+---
+layout: content
+title: Windows下SubLime Text2配置TortoiseSVN插件
+category : windows
+description : 通过Sublime Text2中的Package Control中，安装TortoiseSVN插件,ortoiseSVN插件安装成功后，因为Sublime Text2中TortoiseSVN插件指定软件目录在C盘下，如果你安装TortoiseSVN时指定到了其它目录，则需要在Sublime Text2的插件包中找到“TortoiseSVN”文件夹，如果未在安装目录内找到这包，可在当前用户目录下“AppData\Roaming\Sublime Text 2\Packages\TortoiseSVN”找到“TortoiseSVN.sublime-settings”文件,指定“tortoiseproc_path”中TortoiseSVN软件的目录
+author : 曹甲寅
+keywords : Sublime,Sublime Text2,SVN,TortoiseSVN
+---
+<h2>
+	<span>作者：曹甲寅</span>
+	<span>日期：2013-04-19</span>
+</h2>
+<div class="content">
+
+	<p>通过Sublime Text2中的Package Control中，安装TortoiseSVN插件。</p>
+	<p class="ps">ps:如果你还未安装TortoiseSVN软件可以重<a href="http://tortoisesvn.net/downloads.zh.html" target="_blank">官方下载</a></p>
+	<p>TortoiseSVN插件安装成功后，因为Sublime Text2中TortoiseSVN插件指定软件目录在C盘下，如果你安装TortoiseSVN时指定到了其它目录，则需要在Sublime Text2的插件包中找到“TortoiseSVN”文件夹，如果未在安装目录内找到这包，可在当前用户目录下“AppData\Roaming\Sublime Text 2\Packages\TortoiseSVN”找到“TortoiseSVN.sublime-settings”文件,指定“tortoiseproc_path”中TortoiseSVN软件的目录</p>
+	<blockquote class="content_quote">
+		{
+			"tortoiseproc_path": "e:\\InstallSoft\\TortoiseSVN\\bin\\TortoiseProc.exe"
+		}
+	</blockquote>
+	<p class="ps">ps:这是我本机TortoiseSVN当前安装目录</ps>
+	<p>右键相应的文件,选择“TortoiseSVN Commit” 即可提交到SVN服务器上。</p>
+	<p><img src="static/attachment/20130419/sublime_svn_1.jpg" /></p>
+	<p class="ps">ps:如果“TortoiseSVN Commit”为灰色，请先在的本地目录中“SVN Checkout”一次</p>
+
+	<p>那么接下来就是你努力码代码的时候了，想Commit就右键一下</p>
+	<p class="page_url">本文链接地址:http://www.stutostu.com/966.html</p>
+</div>
