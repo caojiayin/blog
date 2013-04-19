@@ -1,0 +1,114 @@
+---
+layout: content
+title: js三级区域联动-2012年中国行政区域数据库-（省、市、县）
+category : other
+description : 目前中国有34个省级行政区，包括23个省、5个自治区、4个直辖市、2个特别行政区。在历史上和习惯上，各省级行政区都有简称。省级人民政府驻地称省会（首府），中央人民政府所在地是首都。北京是中国的首都。 
+author : 曹甲寅
+keywords : 区域联动，2012年中国行政区域数据库，行政区域数据库,行政区域
+---
+<p>
+	目前中国有34个省级行政区，包括23个省、5个自治区、4个直辖市、2个特别行政区。在历史上和习惯上，各省级行政区都有简称。省级人民政府驻地称省会（首府），中央人民政府所在地是首都。北京是中国的首都。
+</p>
+<textarea class="jscript" name="xzqysjk-js" stype="hhl">
+/*
+* 2012年中国行政区域数据库-（省、市、县）
+* Date:2012-11-29
+* author by caojiayin1984@gmail.com
+*/
+
+function District() { 
+    this.Items = {}; 
+    this.objItem = ['county','province','city','xian']; 
+    this.seItem = [0,0,0,0]; //默认选择的值
+    this.opItem = ["请选择国家|","请选择省份|","请选择城市|","请选择县区|"];
+};
+District.prototype.Add = function(id,iArray) { this.Items[id] = iArray; } ;
+District.prototype.Exists = function(id) { if(typeof(this.Items[id]) == "undefined") return false; return true; };
+var Dis = new District();
+
+Dis.Add('0',['中华人民共和国|1','海外|990000']);
+Dis.Add('0_0',['北京|110000','天津|120000','河北省|130000','山西省|140000','内蒙古自治区|150000','辽宁省|210000','吉林省|220000','黑龙江省|230000','上海|310000','江苏省|320000','浙江省|330000','安徽省|340000','福建省|350000','江西省|360000','山东省|370000','河南省|410000','湖北省|420000','湖南省|430000','广东省|440000','广西壮族自治区|450000','海南省|460000','重庆|500000','四川省|510000','贵州省|520000','云南省|530000','西藏自治区|540000','陕西省|610000','甘肃省|620000','青海省|630000','宁夏回族自治区|640000','新疆维吾尔自治区|650000','台湾省|710000','香港特别行政区|810000','澳门特别行政区|820000']);
+Dis.Add('0_0_0',['北京市|110100']);
+Dis.Add('0_0_0_0',['东城区|110101','西城区|110102','崇文区|110103','宣武区|110104','朝阳区|110105','丰台区|110106','石景山区|110107','海淀区|110108','门头沟区|110109','房山区|110111','通州区|110112','顺义区|110113','昌平区|110114','大兴区|110115','怀柔区|110116','平谷区|110117','密云县|110228','延庆县|110229']);
+Dis.Add('0_1_0',['天津市|120100']);
+........
+........
+........
+Dis.Add('0_33_0',['澳门半岛|820100','离岛|820200']);
+Dis.Add('1_0',['海外|990100']);
+District.prototype.init = function(key,aId,opts){
+    if(key == undefined){key = "0";}
+    if(aId != undefined){Dis.objItem = aId;}
+    if(opts != undefined){Dis.opItem = opts;}
+    for(i = 0 ;i < Dis.objItem.length; i++){
+        var aTemp = Dis.opItem[i].split("|");
+        var O = document.getElementById(Dis.objItem[i]);
+        O.options[0] = new Option(aTemp[0],aTemp[1]);
+        O.onchange = new Function("Dis.change("+(i+1)+")");
+    } 
+    Dis.opts(document.getElementById(Dis.objItem[0]),key);   
+    Dis.selected();
+}
+
+District.prototype.selected = function(){
+    if(this.seItem[0] == 0){return false;}
+    for(var i = 0; i<this.seItem.length;i++){
+        if(this.seItem[i] == 0){break;}
+        var result = Dis.ExitItem(document.getElementById(Dis.objItem[i]),this.seItem[i]);
+        if(result === false){break;}
+        Dis.change(i+1);
+        
+    }
+}
+
+District.prototype.ExitItem = function(objSelect, objItemValue){
+    for (var i = 0; i < objSelect.options.length; i++) { 
+        if (objSelect.options[i].value == objItemValue) {
+            objSelect.options[i].selected = true; 
+            return i;
+        }
+    }
+    return false;
+}
+
+District.prototype.reset = function(v){
+    for(i = v ;i < Dis.objItem.length; i++){
+        document.getElementById(Dis.objItem[i]).options.length = 0;
+        var aTemp = Dis.opItem[i].split("|");
+        document.getElementById(Dis.objItem[i]).options[0] = new Option(aTemp[0],aTemp[1]);
+    }
+}
+
+District.prototype.opts = function(obj,key){
+    if(Dis.Exists(key)){
+        var ar = Dis.Items[key];  
+        for(var i = 0; i< ar.length; i++){
+            var aTemp = ar[i].split("|");
+            obj.options[i+1] = new Option(aTemp[0],aTemp[1]);            
+        }  
+    }    
+}
+
+District.prototype.change = function(v){
+    Dis.reset(v);
+    var key = new Array();
+    for(i = 0 ;i < v; i++){
+        key.push(document.getElementById(Dis.objItem[i]).selectedIndex-1);
+    } 
+    key = key.join("_")+"_0";
+    Dis.opts(document.getElementById(Dis.objItem[v]),key) 
+}
+</textarea> 
+<h3>调用方法</h3>
+<textarea>
+    <select name="county" id="county"></select>
+    <select name="shen" id="province"></select>
+    <select name="shi" id="city"></select>
+    <select name="xian" id="xian"></select>
+    <script>
+    Dis.seItem = ['0','500000','500100','500101']; //设置默认选择的行政区域
+    Dis.init();
+    </script>
+</textarea>
+
+<p class="ps">提供文件下载：<a href="{{ site:url  }}/file/code/district.js" target="_blank">district.js</a></p>
