@@ -97,7 +97,7 @@ dp.sh.HighlightAll = function(name, showGutter, showControls, collapseAll, first
 		highlightDiv = highlighter;
 		highlighter.Highlight(element[propertyName]);
 		//elements.innerHTML = highlighter.div.outerHTML.trim();
-		$(highlighter.div.outerHTML.trim()).insertBefore($(element));
+		$(highlighter.div.outerHTML).insertBefore($(element));
 		showControls ? $(element).hide() : $(element).remove();
 	}	
 }
