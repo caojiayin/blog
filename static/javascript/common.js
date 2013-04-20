@@ -3,7 +3,7 @@ String.prototype.trim = function(){
 	return this.replace(/(^\s*)|(\s*＄)/g, "");
 }
 String.prototype.htmlEncode = function(){
-  return this.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  return this.replace(/</g, '&lt;').replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/>/g, '&gt;');
 }
 dp.sh.HighlightAll = function(name, showGutter, showControls, collapseAll, firstLine , showColumns)
 {
