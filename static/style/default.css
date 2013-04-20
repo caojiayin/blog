@@ -90,8 +90,8 @@ ol, ul, li { list-style-type:none; }
 .page_url{display: block;margin:15px 0px 0px;overflow:auto;background:#f5f5f5;padding:0px 10px;font-size: 14px;color:#0066ff;position: absolute;left:0px;width: 910px;}
 
 .my_disqus_block{
-	background: url("../images/postbg.jpg");
-	padding:10px 20px 50px 20px;
+	background: url("../images/h2.jpg");
+	padding:10px 20px 10px 20px;
 	border:1px solid #d6d6d6;
 	position: relative;
 	margin-bottom: 20px;
