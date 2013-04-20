@@ -8,7 +8,7 @@ keywords : git命令,github搭建blog
 ---
 
 <p>文字组织能力一直是我的弱项，想到写XX文档就头如牛。朋友们告诉我说多写blog、多看历史书就能提高这方面的能力，对于写blog还好吧，如果抱到一本厚厚的历史书籍，想想一下就头皮发麻，两眼泛白。</p>
-<p>最近比较清闲，看到“傅二代”同志的github博客，并且了解了一下后，发现这玩意还挺好玩的。所以就搭建了这个blog。</p>
+<p>最近比较清闲，看到“<a href="http://www.fuweiyi.com/" target="_blank">傅二代</a>”同志的github博客，并且了解了一下后，发现这玩意还挺好玩的。所以就搭建了这个blog。</p>
 <p>还是得感谢“傅二代”同志的帮助和阮一峰的这篇“<a href="http://www.ruanyifeng.com/blog/2012/08/blogging_with_jekyll.html">搭建一个免费的，无限流量的Blog</a>”文章。</p>
 <p class="ps">注意的是：在创建github的blog分支时一定要取名为gh-pages不然是无法访问，会出现404错误。可以用此命令检查和创建该分支$ git checkout --orphan gh-pages</p>
 <p>
@@ -25,18 +25,14 @@ keywords : git命令,github搭建blog
 	$ git add . //将当前工作目录中更改或者新增的文件加入到Git的索引中
 	$ git commit -m '注释' //提交当前工作目录的修改内容
 	$ git push origin gh-pages //将本地commit的代码更新到远程版本库中
-	--------------------------------
-	$ git pull https://github.com/username/gh-pages.git //从服务器的仓库中获取代码，和本地代码合并
 </pre>
 <p class="ps">ps:记住上面这些命令那么你就可以发布和管理你的blog了，是不是很简单也很好玩。</p>
 
 <h3>删除远程文件</h3>
 <p>删除远程文件时，最好先pull一下，将服务器端文件下载到本地项目内，在用rm命令删除，然后在commit一次，最后push一下就OK.</p>
 <pre class="my_disqus_block">
-	$ git pull https://github.com/username/gh-pages.git
+	$ git pull https://github.com/username/gh-pages.git //从服务器的仓库中获取代码，和本地代码合并
 	$ git rm test.txt
 	$ git commit -m 'delete files'
 	$ git push origin gh-pages
-	--------------------------------
-	$ git pull https://github.com/username/gh-pages.git //从服务器的仓库中获取代码，和本地代码合并
 </pre>
