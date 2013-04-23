@@ -1,0 +1,40 @@
+---
+layout: content
+title:  Chrome处理JSON数据时的特殊之处 
+category : javascript other
+description : 今天在开发过程中，遇到了一个奇怪的问题，php数组转成json数据格式后，jQuery在遍历该JSON对象时IE、Firefox、Safari中通过each打印出来的数据顺序是正确的，但在Chrome中就出问题了
+author : 曹甲寅
+keywords : Chrome,JSON,Chrome处理JSON数据
+---
+
+<p>今天在开发过程中，遇到了一个奇怪的问题，php数组转成json数据格式后，jQuery在IE、Firefox、Safari中通过each打印出来的数据顺序是正确的，但在Chrome中就出问题了</p>
+<p>
+	<textarea name="php-code" class="php" stype="hhl">
+		$array = {
+			2 => '重庆',
+			3 => '成都',
+			5 => '上海',
+			1 => '北京',
+			4 => '广州',
+		}
+
+	</textarea>
+</p>
+<p>遍历该JSON对象，将其顺序打印出来，Chrome会和其他浏览器得到不同的结果。</p>
+<h3>IE、Firexof、Safari得到结果均为：</h3>
+<pre class="my_disqus_block">
+	2		'重庆'
+	3		'成都'
+	5		'上海'
+	1		'北京'
+	4		'广州'
+</pre>
+<h3>Chrome得到结果均为：</h3>
+<pre class="my_disqus_block">
+	1		"北京"
+	2		"重庆"
+	3		"成都"
+	4		"广州"
+	5		"上海"
+</pre>
+<p>原因在于这个JSON对象下标是数字，Chrome根据其下标由小到大对对象个元素重新排了序。若把下标改为字符或者将下标删除则就正常</p>
