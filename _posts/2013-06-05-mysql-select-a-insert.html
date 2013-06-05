@@ -1,0 +1,24 @@
+---
+layout: content
+title: 语法：MySQL中INSERT INTO SELECT的使用 
+category : mysql
+description : 有三张表a、b、c，现在需要从表b和表c中分别查几个字段的值插入到表a中对应的字段。对于这种情况，可以使用如下的语句来实现<Br/>INSERT INTO db1_name (field1,field2) SELECT field1,field2 FROM db2_name
+author : 网络
+keywords :sql,mysql,insert into select, 插入查询, 复制表
+---
+
+<h3>1. 语法介绍</h3>
+      有三张表a、b、c，现在需要从表b和表c中分别查几个字段的值插入到表a中对应的字段。对于这种情况，可以使用如下的语句来实现：
+<pre class="my_disqus_block">INSERT INTO db1_name (field1,field2) SELECT field1,field2 FROM db2_name</pre>
+      上面的语句比较适合两个表的数据互插，如果多个表就不适应了。对于多个表，可以先将需要查询的字段JOIN起来，然后组成一个视图后再SELECT FROM就可以了：
+<pre class="my_disqus_block">INSERT INTO a (field1,field2) SELECT * FROM(SELECT b.f1,c.f2 FROM b JOIN c) AS tb</pre>
+      其中f1是表b的字段，f2是表c的字段，通过JOIN查询就将分别来自表b和表c的字段进行了组合，然后再通过SELECT嵌套查询插入到表a中，这样就满足了这个场景了，如果需要不止2个表，那么可以多个JOIN的形式来组合字段。
+
+<h3>2. 语法错误注意</h3>
+      需要注意的是嵌套查询部分最后一定要有设置表别名，如下：
+<pre class="my_disqus_block">SELECT * FROM (SELECT f1,f2 FROM b JOIN c) AS tb</pre>
+      即最后的AS tb是必须的（tb这个名称可以随意取），即指定一个别名。每个派生出来的新表都必须指定别名，否则在mysql中会报如下错误：
+
+<pre class="my_disqus_block">ERROR 1248 (42000): Every derived TABLE must have its own alias</pre>
+      另外，MySQL中INSERT INTO SELECT不能加VALUES，即不能写成如下形式：
+<pre class="my_disqus_block">INSERT INTO db1_name(field1,field2) VALUES SELECT field1,field2 FROM db2_name</pre>
