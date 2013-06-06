@@ -1,0 +1,11 @@
+---
+layout: content
+title: SSH 显示中文乱码
+category : other
+description : 经常要用到SSH Secure Shell Client连接到linux服务器上去处理事情，但客户端对中文支持很不友好，显示中文完全无法认识，几经周折终于找到一个最简单最有效的解决方法，只到将下面代码复制到终端上面运行一次就OK
+author : 网络
+keywords : SSH,shell,乱码
+---
+<p>经常要用到SSH Secure Shell Client连接到linux服务器上去处理事情，但客户端对中文支持很不友好，显示中文完全无法认识，几经周折终于找到一个最简单最有效的解决方法，只到将下面代码复制到终端上面运行一次就OK.</p>
+<pre class="my_disqus_block">export LC_ALL=zh_CN.GB2312;export LANG=zh_CN.GB2312</pre>
+<P>是不是超级简单。</P>
