@@ -1,8 +1,8 @@
 ---
 layout: content
-title: python类型转换、数值操作(收藏) 
+title: Apache站点下载大文件不完整原因及解决办法 
 category : apache
-description : 最近学习python语言，碰到数据类型间的转换问题。看到一篇文章总结的挺详细，收藏之备用。
+description : 只要把Apache的配置文件httpd.conf里<IfModule mime_module>块中的EnableSendfile后的值改为Off即可。如果没有这一项自己添加上去：EnableSendfile Off，记住要放到上面的块中，不然Apache会启动不起来.如果不管事可以把EnableMMAP后的值也设为Off试试。
 author : 网络
 keywords : apache,js,加载图片,EnableSendfile
 ---
