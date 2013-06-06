@@ -16,5 +16,17 @@ title:
 		{% endif %}
 		{{ post.description }}
 	</div>
+	<div class="index_page">
+                {% if paginator.previous_page %}
+		{% if paginator.previous_page>1  %}
+                &laquo;&nbsp;<a href="{{ site:baseurl  }}/page{{ paginator.previous_page }}" class="page">Previous</a>
+		{% else  %}
+		&laquo;&nbsp;<a href="{{ site:baseurl  }}/" class="page">Previous</a>
+		{% endif  %}
+                {% endif %}
+                {% if paginator.next_page %}
+                <a href="{{ site:baseurl  }}/page{{ paginator.next_page  }}" class="page">Next</a>&nbsp;&raquo;
+                {% endif %}
+        </div>
 </div>
 {% endfor %}
