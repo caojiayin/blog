@@ -1,10 +1,10 @@
 ---
 layout: content
-title: python类型转换、数值操作(收藏) 
-category : python
+title: Apache加载图片和JS文件不完全的解决办法 
+category : apache
 description : 最近学习python语言，碰到数据类型间的转换问题。看到一篇文章总结的挺详细，收藏之备用。
 author : 网络
-keywords : python,python类型转换,python类数值操作
+keywords : apache,js,加载图片,EnableSendfile
 ---
 最近在Windows 7下 Apache 2.2.15 + PHP5.3.2 + MYSQL 环境下安装Discuz! X1 ，发现common.js总是报错，最后抓包，安装的插件不能正常显示。奇怪的是同样配置在winXP Win2003都没有问题，在Win7却有问题。比较分析， 发现ie或firefox下载的 js 文件与服务器上的不一致。
 经过查找，最后发现是apache的配置文件中EnableSendfile这个选项在捣鬼，此选项是被注释的，默认值为On,去掉注释 EnableSendfile off以后，重启apache服务器，一切正常，问题解决。
